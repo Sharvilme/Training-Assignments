@@ -1,0 +1,70 @@
+1. Create three variables in a single line and assign values to them in such a manner that each one of them belongs to a different data type.
+a,b,c=10,2.34,"hello"
+print(a,b,c)
+
+2. Create a variable of type complex and swap it with another variable of type integer.
+x=2+2j
+print(x)
+print(type(x))
+y=3
+x,y=y,x
+print(x)
+print(type(x))
+
+3. Swap two numbers using a third variable and do the same task without using any third variable.
+With third variable
+x=2
+y=3
+print(x,y)
+z=x
+x=y
+y=z
+print(x,y)
+without third variable
+x=2
+y=3
+print(x,y)
+x,y=y,x
+print(x,y)
+
+4. Write a program that takes input from the user and prints it using both Python 2.x and Python 3.x Version.
+Python 2.x
+x=raw_input("Name : ")
+print x
+
+Python 3.x
+x=input("Name : ")
+print(x)
+
+5. Write a program to complete the task given below:
+Ask users to enter any 2 numbers in between 1-10 , add the two numbers and keep the sum in another variable called z.
+Add 30 to z and store the output in variable result and print result as the final output.
+x=int(input("Enter a number between 1-10: "))
+y=int(input("Enter another number between 1-10: "))
+z=x+y
+result=z+30
+print(result)
+
+6. Write a program to check the data type of the entered values. HINT: Printed output should say - The data type of the input value is : int/float/string/etc
+a=5
+print("The data type of the input value is :",type(a))
+b=2.5
+print("The data type of the input value is :",type(b))
+c='hello'
+print("The data type of the input value is :",type(c))
+
+7. Create Variables using formats such as Upper CamelCase, Lower CamelCase, SnakeCase and UPPERCASE.
+Upper CamelCase
+a='HelloEveryone'
+Lower CamelCase
+b='helloEveryone'
+SnakeCase
+c="hello_everyone"
+UPPERCASE
+d="HELLOEVERYONE"
+
+8. If one data type value is assigned to ‘a’ variable and then a different data type value is assigned to ‘a’ again. Will it change the value? If Yes then Why?
+Yes. The value of 'a' will change and it will take the new value.
+If we change the data type, then its value will remain same but will be represented differently like int 10 will become float 10.0
+
+
