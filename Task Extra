@@ -1,0 +1,160 @@
+1. Create a list of given structure and get the Access list as provided below:
+x=[100,200,300,400,500,[1,2,3,4,5,[10,20,30,40,50],6,7,8,9],600,700,800]
+Access list: [1, 2, 3, 4]
+Access list: [600, 700]
+Access list: [100, 300, 500, 600, 800]
+Access list: [[800, 700, 600, [1, 2, 3, 4, 5, [10, 20, 30, 40, 50], 6, 7, 8, 9], 500, 400, 300, 200, 100]]
+Access list: [10]
+Access list: [ ]
+x=[100,200,300,400,500,[1,2,3,4,5,[10,20,30,40,50],6,7,8,9],600,700,800]
+print(x[5][:4])
+print(x[-3:-1])
+print(x[::2])
+print(x[::-1])
+print(x[5][5][:1])
+print(x[:0])
+
+
+2. Create a list of thousand numbers using range and xrange and see the difference between each other.
+(For reference:https://www.techbeamers.com/python-xrange-range/)
+#Using range
+l=list(range(1000))
+print(l)
+
+#using xrange
+for i in xrange(1000):
+    print(i)
+
+Range displays all values at a time while xrange displays only one value at a time.
+Hence xrange saves memory while operating on a large data.
+xrange and range are different in python 2.x
+xrange was decomissioned and used with the name range in python 3.x
+To calculate the speed of range and xrange for the above data:   
+
+r = [i for i in range(0,1000)]
+timeit.timeit('"-".join(str(num) for num in range(1000))', number=1000)
+output : 0.1790704
+
+xr = [i for i in xrange(0,1000)]
+timeit.timeit('"-".join(str(num) for num in xrange(1000))', number=1000)
+output : 0.1702202
+
+
+3. How Tuple is beneficial as compared to the list?
+Tuples are immutable so, It doesn't require extra space to store new objects and hence are memory efficient.
+Tuples are faster than lists, because they have a constant set of values
+
+
+4. Write a program in Python to iterate through the list of numbers in the range of 1,100 and print
+the number which is divisible by 3 and is a multiple of 2.
+l = [i for i in range(1,100) if i%3==0 and i%2==0]
+print(l)
+
+
+5. Write a program in Python to reverse a string and print only the vowel alphabet if it exists in the
+string with their index.
+
+str = input("enter string:")
+reverse_str = str[::-1]
+print(reverse_str)
+for i in reverse_str:
+    if i in "aeiouAEIOU":
+        print(list(i), end=',')
+
+
+6. Write a program in Python to iterate through the string “hello my name is abcde” and print the
+string which is having an even length.
+
+string = "hello my name is abcde".split(' ')
+for word in string:
+    if len(word) % 2 == 0:
+        print(word)
+		OR
+s = [i for i in "hello my name is abcde".split() if len(i)%2==0]
+print(s)
+
+
+7. Write a program in python to print the pair of numbers whose sum is equal to the result
+number that is let's say 8.
+x=[1,2,3,4,5,6,7,8,9,-1]
+
+Expected_number = 8
+x = [1, 2, 3, 4, 5, 6, 7, 8, 9, -1]
+x.sort()
+for i in x:
+    if (Expected_number-i) in x:
+        print(i, (Expected_number-i))
+
+
+8. Write a program in Python to complete the following task:
+-Create two lists such as even_list and odd_list
+-Ask user to enter a number in the range of 1,50 and make sure if the entered number is
+ even, append it to the even_list and if the entered number is odd append it to the odd_list.
+-Keep that in mind you can only add 5 items in each list
+-Make sure once you enter all the 5 elements, calculate the sum of the list and return the
+maximum of the list.
+
+def main() -> object:
+    even_list = []
+    odd_list = []
+
+    count_even = 0
+    count_odd = 0
+
+    while count_even < 6 and count_odd < 6:
+        try:
+            input_number = int(input("Enter a number for either of odd list/even_list:"))
+            if input_number % 2 == 0 and input_number in range(1, 51):
+                even_list.append(input_number)
+                count_even += 1
+            elif input_number in range(1, 51):
+                odd_list.append(input_number)
+                count_odd += 1
+            else:
+                raise ValueError
+        except ValueError:
+            print("Please enter the integer number in the range of 1,50. Try again!")
+        except Exception as ex:
+            print(ex.msg)
+    return sum(even_list), max(even_list), sum(odd_list), max(odd_list)
+
+print("""
+Sum of even_list = %d
+Max of even_list = %d
+Sum of odd_list = %d
+Max of odd_list = %d
+""" % main())
+
+
+9. Write a program to find out the occurrence of a specific character from an alphanumeric string.
+Sample input: 12abcbacbaba344ab
+Expected output: a=5 b=5 c=2
+NOTE: Make sure to avoid counting the occurrence of numeric values in the string.
+
+s = ('12abcbacbaba344ab')
+d = {i:s.count(i) for i in s if i.isalpha()}
+print (d)
+		OR
+sample_input = "12abcbacbaba344ab"
+result = {}
+for ch in sample_input:
+    if ch.isalpha():
+        if ch not in result.keys():
+            result[ch] = 1
+        elif ch in result.keys():
+            result[ch] += 1
+print(result)
+
+
+10. Generate and print another tuple whose values are even numbers in the given tuple
+(1,2,3,4,5,6,7,8,9,10).
+t = (1,2,3,4,5,6,7,8,9,10)
+x= tuple([i for i in t if i%2==0])
+print(x)
+		OR
+Lst = (1,2,3,4,5,6,7,8,9,10)
+Lst = tuple(filter(lambda x : x%2==0,Lst))  
+print(Lst)
+
+
+
